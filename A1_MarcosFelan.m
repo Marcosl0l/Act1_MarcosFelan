@@ -1,0 +1,11 @@
+%addpath('C:\Users\EQUIPO\OneDrive\Documentos\MATLAB\eeglab2021.1');
+EEG = pop_biosig('C:\Users\EQUIPO\OneDrive\Documentos\EEG\Señalcruda1.gdf');
+EEG = pop_editset(EEG);
+pop_eegplot( EEG, 1, 1, 1);
+EEG = pop_eegfiltnew(EEG, 8, 13);
+pop_eegplot( EEG, 1, 1, 1);
+EEG = pop_clean_rawdata(EEG);
+pop_eegplot( EEG, 1, 1, 1);
+EEG = pop_runica(EEG);
+EEG = pop_iclabel(EEG);
+EEG = pop_viewprops(EEG, 0, 1:size(EEG.icawinv, 2), {'ICLabel'});
